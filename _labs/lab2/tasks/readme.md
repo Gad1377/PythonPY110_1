@@ -294,7 +294,7 @@ def dynamic_datetime_view(request):
         return HttpResponse(data)
 ```
 
-Затем в корневом `urls.py` пропишите маршрут `dynamic_datetime/` с данным представлением `dynamic_datetime_view`.
+    Затем в корневом `urls.py` пропишите маршрут `dynamic_datetime/` с данным представлением `dynamic_datetime_view`.
 
 
 Теперь перейдя по адресу http://127.0.0.1:8000/dynamic_datetime/ вы получите динамическое обновление времени за счет запросов на сервер. 
