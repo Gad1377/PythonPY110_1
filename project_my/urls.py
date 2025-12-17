@@ -17,7 +17,7 @@ Including another URLconf
 
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from random import random
 from django.http import HttpResponse
 from app_datetime.views import datetime_view
@@ -55,7 +55,6 @@ urlpatterns = [
     path('dynamic_random/', dynamic_random_view),
     path('datetime/', datetime_view),
     path('dynamic_datetime/', dynamic_datetime_view),
-    path('weather/', weather_view),
-    path('product/', product_view_json),
-    path('', shop_view),
+    path('weather/', include(('app_weather.urls'))),
+    path('', include('app_store.urls')),
 ]
