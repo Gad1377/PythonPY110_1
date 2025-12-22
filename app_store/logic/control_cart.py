@@ -79,7 +79,13 @@ def remove_from_cart(id_product: str, username: str = '') -> bool:
     if id_product not in user_cart:
         return False
 
-    del user_cart[id_product]
+    current_count = user_cart[id_product]
+    if current_count > 1:
+        user_cart[id_product] -= 1
+    elif current_count == 1:
+        del user_cart[id_product]
+    else:
+        return False
 
     cart[username]['products'] = user_cart
 
