@@ -95,6 +95,7 @@ def remove_from_cart(id_product: str, username: str = '') -> bool:
     return True
 
 
+
 if __name__ == "__main__":
     # Проверка работоспособности функций view_in_cart, add_to_cart, remove_from_cart
     if os.path.exists('cart.json'):  # Если файл существует
