@@ -63,5 +63,12 @@ def wishlist_del_view_json(request, id_product: str):
 
         return JsonResponse({"answer": "Неудачное удаление из избранного"}, status=404, json_dumps_params={'ensure_ascii': False})
 
-
+@login_required(login_url='app_login:login_view')
+def wishlist_remove_view(request, id_product):
+    if request.method == "GET":
+        username = get_user(request).username
+        result = remove_from_wishlist(id_product, username)
+        if result:
+            return redirect("app_wishlist:wishlist_view")
+        return HttpResponseNotFound("Неудачное удаление из избранного")
 
