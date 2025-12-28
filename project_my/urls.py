@@ -20,11 +20,14 @@ from django.contrib import admin
 from django.urls import path, include
 from random import random
 from django.http import HttpResponse
+
+# import app_wishlist
 from app_datetime.views import datetime_view
 from app_datetime.views import dynamic_datetime_view
 from app_weather.views import weather_view
 from app_store.views import product_view_json
 from app_store.views import shop_view
+from app_wishlist.views import wishlist_view
 
 def random_view(request):
     if request.method == "GET":
@@ -58,4 +61,5 @@ urlpatterns = [
     path('weather/', include(('app_weather.urls'))),
     path('', include('app_store.urls')),
     path('login/', include('app_login.urls')),
+    path('wishlist/', include('app_wishlist.urls'))
 ]
